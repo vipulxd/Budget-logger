@@ -1,0 +1,4 @@
+deployment:
+tasks:
+-expor DEPLOYPATH=/home/jxgsnobj/public_html/
+- /bin/cp -R * $DEPLOYPATH

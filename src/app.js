@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/style.scss';
+// import './styles/style.scss';
 import 'normalize.css/normalize.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
@@ -11,9 +11,7 @@ import  {Provider} from 'react-redux';
 
 const store =configureStore();
 
-const state = store.getState();
-const visibleExpense = getVisbleExpenses(state.expenses,state.filters)
-console.log(visibleExpense)
+console.log('testing')
 // this has the provider whch will give the access of the store to every component
 const jsx =(
 

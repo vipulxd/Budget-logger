@@ -1,0 +1,20 @@
+//rem 
+html{
+   font-size:62.5%;
+}
+
+body{
+   font-family: Helvetica;
+   font-size: $spacing;
+   background-color:white;
+}
+button{
+   cursor: pointer;
+   border-radius:1.5rem;
+}
+button:disabled{
+   cursor:default;
+}
+.selected{
+   color:blue;
+}

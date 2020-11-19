@@ -3,14 +3,18 @@ import  ExpenseListItem from './ExpenseItemList';
 import {connect} from 'react-redux';
 import ExpenseFilter from '../selectors/expenses';
 
-const ExpenseList=(props)=>(
-<div >
-
-<h1 > Expense List</h1>
-{props.expenses.map((expense)=>{
-return <ExpenseListItem key={expense.id} {...expense} />;
-})}
-</div>
+export const ExpenseList = (props) => (
+  <div>
+    {
+      props.expenses.length === 0 ? (
+        <p>No expenses</p>
+      ) : (
+          props.expenses.map((expense) => {
+            return <ExpenseListItem key={expense.id} {...expense} />;
+          })
+        )
+    }
+  </div>
 
 );
 // this is the default method to use  the connect API  but it is not recomended to use 

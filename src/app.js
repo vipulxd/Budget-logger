@@ -4,14 +4,15 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses';
+import {startSetExpenses} from './actions/expenses';
 import {setTextFilter} from './actions/filter';
 import getVisbleExpenses from './selectors/expenses';
 import  {Provider} from 'react-redux';
-
+import './firebase/firebase';
+import './playground/es6-promises';
 const store =configureStore();
 
-console.log('testing')
+
 // this has the provider whch will give the access of the store to every component
 const jsx =(
 
@@ -22,9 +23,10 @@ const jsx =(
 
 
 );
-
+ReactDOM.render(<p>Loading...</p>, document.getElementById('appRoot'))
+store.dispatch(startSetExpenses()).then(()=>{
 ReactDOM.render(jsx, document.getElementById('appRoot'))
-
+});
 
 
 

@@ -1,99 +1,45 @@
-import {createStore} from 'redux';
-// this is  the declaration for the redux store
-// the state is the default and it will pass the defau;t value as
-// as 0 
+//
+// Object destructuring
+//
 
- // this is a arrow function to call increment 
-// const incrementObject  =()=>{
-//    return {
-//       type:'INCREMENT'
-//    }
+// const person = {
+//   name: 'Andrew',
+//   age: 27,
+//   location: {
+//     city: 'Philadelphia',
+//     temp: 88
+//   }
+// };
+
+// const { name: firstName = 'Anonymous', age } = person;
+// console.log(`${firstName} is ${age}.`);
+
+// const { city, temp: temperature } = person.location;
+// if (city && temperature) {
+//   console.log(`It's ${temperature} in ${city}.`);
 // }
-// the incrementBy is used as a default object also
-// const incrementObject = ({incrementBy ={}})
-const incrementObject =({incrementBy=1}={})=>({
-   type:'INCREMENT',
-   // incrementBy:typeof incrementer.incrementBy ==='number'? incrementer.incrementBy:1
-incrementBy
 
-});
-const  decrementObject =({decrementBy=1}={})=>({
-type:'DECREMENT',
-decrementBy
-});
-const reset =()=>({
-   type:'RESET'
-})
-const setCount =({count})=>({
-type:'SET',
-count
-})
+// const book = {
+//   title: 'Ego is the Enemy',
+//   author: 'Ryan Holiday',
+//   publisher: {
+//     // name: 'Penguin'
+//   }
+// };
 
-const store = createStore((state={count:0}, action)=>{
-   switch(action.type){
-      case 'INCREMENT':
-      // const incrementBy =typeof action.incrementBy==='number' ? action.incrementBy :1;   case 'INCREMENT':
-return{
-   count:state.count + action.incrementBy
-}
-case 'DECREMENT':
-   // decrement using an const 
-   // const  decrementBy = typeof action.decrementBy==='number'? action.decrementBy : 1;
-   return{
-      count:state.count - action.decrementBy
-      
-   }
-   case 'RESET':
-      return{
-         count:state.count =0
-      }
+// const { name: publisherName = 'Self-Published' } = book.publisher;
 
-default:
-   return state;
-}
+// console.log(publisherName); // Penguin, Self-Published
 
-});
+//
+// Array destructuring
+//
 
-// this will perform a function every time  the store is called or dispatched
-store.subscribe(()=>{
-   console.log(store.getState())
-});
+// const address = ['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147'];
+// const [, city, state = 'New York'] = address;
+// console.log(`You are in ${city} ${state}.`);
 
-//the return value from subscribe will stop it from performing the sunction for that 
-// const unsubscribe = store.subscribe(()=>{
-//    console.log(store.getState());
-// })
+const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
+const [itemName, , mediumPrice] = item;
 
-// this is an object which is passed to the action and it will update the count 
-// this is not prefered because if there is a speel mistale then error would occur
-// store.dispatch({
-//    type:'INCREMENT'
-// }) 
-store.dispatch(incrementObject({incrementBy: 5})); 
-
-// store.dispatch({
-//    type:'INCREMENT',
-//    incrementBy : 100
-// })
-
-
-// the function is called and the increment action will be logged only and
-// the other two will not because it is unsubscribed now 
-// unsubscribe();
-
-store.dispatch(decrementObject({decrementBy:2}));
-
-// store.dispatch({
-//    type:'DECREMENT' ,
-//    // value for decrementation
-//    decrementBy:10
-// })
-// store.dispatch({
-//    type:'RESET'
-// })
-// the store will be called twice when the store is created and once the store is created
-// the getState will give the state value 
-// by default the state is set to one so one will be shownw to console
-store.dispatch(reset())
-store.dispatch(setCount({count:1001}))
-
+console.log(`A medium ${itemName} costs ${mediumPrice}`);
